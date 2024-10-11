@@ -1,0 +1,41 @@
+<mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.id }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="nama">
+    <mat-header-cell *matHeaderCellDef> Nama </mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.nama }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.email }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="telepon">
+    <mat-header-cell *matHeaderCellDef> Telepon </mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.telepon }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="alamat">
+    <mat-header-cell *matHeaderCellDef> Alamat </mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.alamat }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <button mat-button (click)="updateData(row._id)">Edit</button>
+      <button mat-button (click)="deleteData(row._id)">Delete</button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+
+<button mat-raised-button color="primary" (click)="exportData()">
+  Export to Excel
+</button>

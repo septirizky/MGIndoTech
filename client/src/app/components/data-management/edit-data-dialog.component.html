@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Edit Data</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Nama</mat-label>
+    <input matInput [(ngModel)]="data.nama" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput [(ngModel)]="data.email" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Telepon</mat-label>
+    <input matInput [(ngModel)]="data.telepon" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Alamat</mat-label>
+    <input matInput [(ngModel)]="data.alamat" />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data">Save</button>
+</div>

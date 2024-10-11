@@ -1,0 +1,25 @@
+<form>
+  <label for="fileUpload">Upload CSV</label>
+  <input id="fileUpload" type="file" (change)="onFileSelected($event)" />
+</form>
+
+<mat-table *ngIf="dataSource" [dataSource]="dataSource">
+  <ng-container matColumnDef="select">
+    <mat-header-cell *matHeaderCellDef> Select </mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <mat-checkbox (change)="toggleSelection(row)"></mat-checkbox>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+    <mat-header-cell *matHeaderCellDef>{{ column }}</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row[column] }}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="allColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: allColumns"></mat-row>
+</mat-table>
+
+<button mat-raised-button color="primary" (click)="importSelectedData()">
+  Import Selected
+</button>
